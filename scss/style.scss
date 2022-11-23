@@ -41,9 +41,23 @@ $font-white: #FFFFFF;
 $font-black: #333333;
 $font-color3: #FF2A2A;
 $textbackground-color: #E9F1FB;
+$btn-shadow: #7A051C;
+
+body {
+  background-color: $background-white;
+
+  font-family:
+    "游ゴシック体",
+    YuGothic,
+    "游ゴシック Medium",
+    "Yu Gothic Medium",
+    "游ゴシック",
+    "Yu Gothic",
+    sans-serif;
+}
 
 .ly-cont {
-  max-width: 1000px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 5%;
 }
@@ -79,7 +93,7 @@ li {
   // https://www.asobou.co.jp/blog/web/css-menu
   &__openbtn {
     position: fixed;
-    z-index: 7777;/*ボタンを最前面に*/
+    z-index: 30;/*ボタンを最前面に*/
     top: 0;
     right: 0;
     cursor: pointer;
@@ -183,7 +197,7 @@ li {
 
     /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
     position: fixed;
-    z-index: 777;
+    z-index: 20;
 
     /**/
     top: 0;
@@ -192,11 +206,12 @@ li {
 
     transition: all 0.5s;/*アニメーション設定*/
     opacity: 0;
-    // visibility: hidden;
+    visibility: hidden;/*はじめは非表示*/
 
     &.active {
       opacity: 1;
-      // visibility: visible;
+      /*activeしたら表示*/
+      visibility: visible;
     }
 
     &__logo {
@@ -216,13 +231,7 @@ li {
     &__list {
       // opacity: 0;/*はじめは透過0*/
 
-      /*ナビゲーション天地中央揃え*/
-      // position: absolute;
-      z-index: 777;
-
-      // top: 50%;
-      // left: 50%;
-      // transform: translate(-50%, -50%);
+      // z-index: 777;
 
       margin: 80px 0 40px 0;
       text-align: center;
@@ -273,6 +282,7 @@ li {
       padding: 15px 0;
       margin: 0 auto;
       position: relative;
+
       transition: 0.3s ease-in-out;
 
       &:after {
@@ -285,6 +295,11 @@ li {
         position: absolute;
         right: -6px;
         bottom: -6px;
+      }
+
+      &:hover {
+        background-color: $background-white;
+        color: $background-red;
       }
     }
   }
@@ -308,6 +323,138 @@ li {
 
     &.active {
       transform: scale(50);/*クラスが付与されたらscaleを拡大*/
+    }
+  }
+}
+
+.mainvisual {
+  &__text {
+    position: absolute;
+    top: 380px;
+    left: 135px;
+    z-index: 10;
+
+    &__title {
+      color: $font-black;
+      font-size: 2.3rem;
+      font-weight: bold;
+      letter-spacing: 4.6px;
+      margin-bottom: 30px;
+    }
+
+    &__btn {
+      color: $font-white;
+      background-color: $background-red;
+      border-bottom: solid 6px $btn-shadow;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-style: normal;
+      letter-spacing: 2.4px;
+
+      display: block;
+      text-align: center;
+      padding: 15px 30px;
+      width: 480px;
+
+      transition: 0.3s;
+
+      /* くの字 */
+      position: relative;
+
+      // https://kouhekikyozou.com/css_arrow_button
+      /* くの字の表示設定 */
+      &:after {
+        content: "";
+        /* くの字位置設定 */
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 30px;
+        /* くの字長さ */
+        width: 15px;
+        height: 15px;
+        /* くの字太さ */
+        border-top: 3px solid $font-white;
+        border-right: 3px solid $font-white;
+        /* くの字の向き */
+        transform: rotate(45deg);
+      }
+
+      &:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  // https://atelier-light.com/blog/full_screen_slide_animation01/#toc4
+  &__img {
+    position: relative;
+
+    & li {
+      // display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 75%;
+
+      /* スライドアニメーション設定 */
+      animation-duration: 15s; /* 長さ15秒 */
+      animation-iteration-count: infinite; /* 無限に再生を繰り返す */
+      animation-name: fade; /* アニメーション名 */
+      animation-timing-function: ease; /* 開始と完了を滑らかにする */
+      opacity: 0;
+
+      // animation: fade 15s infinite;
+
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: 5s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 10s;
+      }
+
+      /* フェードイン、フェードアウト設定 */
+      @keyframes fade{
+        0% {
+            opacity: 0;
+        }
+        16% {
+            opacity: 1;
+        }
+        33% {
+            opacity: 1;
+        }
+        49% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 0;
+            // transform: translateX(-10%);/*15秒かけて（0%〜100%）左から右へ10%移動*/
+        }
+      }
+
+      &:after {
+        /* :afterを有効にする */
+        content: "";
+        /* box-shadowの設定 */
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: inset 0px 0px 20px 20px #fff;
+      }
+
+      img {
+        height: 720px;
+      }
     }
   }
 }

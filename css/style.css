@@ -3,8 +3,13 @@ html {
   font-size: 20px;
 }
 
+body {
+  background-color: #FFFFFF;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+}
+
 .ly-cont {
-  max-width: 1000px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 5%;
 }
@@ -40,7 +45,7 @@ li {
 }
 .header__openbtn {
   position: fixed;
-  z-index: 7777; /*ボタンを最前面に*/
+  z-index: 30; /*ボタンを最前面に*/
   top: 0;
   right: 0;
   cursor: pointer;
@@ -92,16 +97,19 @@ li {
   text-align: center;
   /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
   position: fixed;
-  z-index: 777;
+  z-index: 20;
   /**/
   top: 0;
   width: 100%;
   height: 100vh;
   transition: all 0.5s; /*アニメーション設定*/
   opacity: 0;
+  visibility: hidden; /*はじめは非表示*/
 }
 .header__gnav.active {
   opacity: 1;
+  /*activeしたら表示*/
+  visibility: visible;
 }
 .header__gnav__logo {
   position: absolute;
@@ -115,8 +123,6 @@ li {
   text-align: center;
 }
 .header__gnav__list {
-  /*ナビゲーション天地中央揃え*/
-  z-index: 777;
   margin: 80px 0 40px 0;
   text-align: center;
   /*背景が出現後にナビゲーションを表示*/
@@ -182,6 +188,10 @@ li {
   right: -6px;
   bottom: -6px;
 }
+.header__gnav__btn:hover {
+  background-color: #FFFFFF;
+  color: #FF2A2A;
+}
 .header__circle-bg {
   position: fixed;
   z-index: 5;
@@ -198,4 +208,136 @@ li {
 }
 .header__circle-bg.active {
   transform: scale(50); /*クラスが付与されたらscaleを拡大*/
+}
+
+.mainvisual__text {
+  position: absolute;
+  top: 380px;
+  left: 135px;
+  z-index: 10;
+}
+.mainvisual__text__title {
+  color: #333333;
+  font-size: 2.3rem;
+  font-weight: bold;
+  letter-spacing: 4.6px;
+  margin-bottom: 30px;
+}
+.mainvisual__text__btn {
+  color: #FFFFFF;
+  background-color: #FF2A2A;
+  border-bottom: solid 6px #7A051C;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-style: normal;
+  letter-spacing: 2.4px;
+  display: block;
+  text-align: center;
+  padding: 15px 30px;
+  width: 480px;
+  transition: 0.3s;
+  /* くの字 */
+  position: relative;
+  /* くの字の表示設定 */
+}
+.mainvisual__text__btn:after {
+  content: "";
+  /* くの字位置設定 */
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 30px;
+  /* くの字長さ */
+  width: 15px;
+  height: 15px;
+  /* くの字太さ */
+  border-top: 3px solid #FFFFFF;
+  border-right: 3px solid #FFFFFF;
+  /* くの字の向き */
+  transform: rotate(45deg);
+}
+.mainvisual__text__btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+.mainvisual__img {
+  position: relative;
+}
+.mainvisual__img li {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75%;
+  /* スライドアニメーション設定 */
+  -webkit-animation-duration: 15s;
+          animation-duration: 15s; /* 長さ15秒 */
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; /* 無限に再生を繰り返す */
+  -webkit-animation-name: fade;
+          animation-name: fade; /* アニメーション名 */
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease; /* 開始と完了を滑らかにする */
+  opacity: 0;
+  /* フェードイン、フェードアウト設定 */
+}
+.mainvisual__img li:nth-child(1) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.mainvisual__img li:nth-child(2) {
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+.mainvisual__img li:nth-child(3) {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+}
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  16% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  16% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.mainvisual__img li:after {
+  /* :afterを有効にする */
+  content: "";
+  /* box-shadowの設定 */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0px 0px 20px 20px #fff;
+}
+.mainvisual__img li img {
+  height: 720px;
 }
