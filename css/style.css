@@ -161,14 +161,26 @@ li {
   letter-spacing: 0.1em;
 }
 .header__gnav__btn {
-  display: block;
-  width: 250px;
-  padding: 15px 0;
-  margin: 0 auto;
   border: solid 1px #FFFFFF;
   font-size: 0.8rem;
   font-weight: bold;
   letter-spacing: 1.6px;
+  display: block;
+  width: 250px;
+  padding: 15px 0;
+  margin: 0 auto;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+.header__gnav__btn:after {
+  content: "　";
+  border-right: solid 1px #FFFFFF;
+  border-bottom: solid 1px #FFFFFF;
+  width: 250px;
+  padding: 15px 0;
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
 }
 .header__circle-bg {
   position: fixed;
