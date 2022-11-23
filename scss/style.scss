@@ -1,0 +1,300 @@
+@charset "utf-8";
+
+// レスポンシブ用
+$breakpoints: (
+  "tb": "screen and (max-width: 1200px)",
+  "tb-s": "screen and (max-width: 900px)",
+  "sm-x": "screen and (max-width: 600px)",
+  "sm": "screen and (max-width: 480px)",
+  "sm-s": "screen and (max-width: 340px)",
+);
+@mixin bq($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+html {
+  font-size: 20px;
+}
+// html {
+//   @include bq(tb) {
+//     font-size: 16px;
+//   }
+//   @include bq(tb-s) {
+//     font-size: 14px;
+//   }
+//   @include bq(sm-x) {
+//     font-size: 12px;
+//   }
+//   @include bq(sm) {
+//     font-size: 10px;
+//   }
+// }
+
+// 0.8rem⇒16px
+
+// color
+$background-white: #FFFFFF;
+$background-red: #FF2A2A;
+$background-color3: #E8E8E8;
+$font-white: #FFFFFF;
+$font-black: #333333;
+$font-color3: #FF2A2A;
+$textbackground-color: #E9F1FB;
+
+.ly-cont {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+a {
+  color: $font-black;//文字色デフォルトから変更
+  text-decoration: none;// 下線を非表示
+}
+
+img {
+  object-fit: cover;// アスペクト比
+  max-width: 100%;
+  vertical-align: middle;// 画像下の余白を消す
+}
+
+li {
+  list-style: none;// マーク非表示
+}
+
+.header {
+  background-color: $background-white;
+  height: 100px;
+
+  &__logo {
+    margin: 50px 40px 0 40px;
+    width: 100px;
+
+    a {
+      display: block;
+    }
+  }
+
+  // https://www.asobou.co.jp/blog/web/css-menu
+  &__openbtn {
+    position: fixed;
+    z-index: 7777;/*ボタンを最前面に*/
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+
+    background-color: $background-red;
+    color: $font-white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span,
+    span:before,
+    span:after {
+      background: $background-white;
+
+      content: '';
+      display: inline-block;
+      position: absolute;
+      // top: 50px;
+      // left: 25px;
+      height: 3px;
+      border-radius: 2px;
+      width: 50%;
+
+      transition: all .4s;/*アニメーションの設定*/
+    }
+
+    span:before {
+      // @extend span;
+      bottom: 15px;
+      width: 100%;
+    }
+
+    span:after {
+      // @extend span;
+      top: 15px;
+      width: 100%;
+    }
+
+    // span:nth-of-type(1) {
+    //   top: 35px;
+    // }
+
+    // span:nth-of-type(2) {
+    //   top: 50px;
+    // }
+
+    // span:nth-of-type(3) {
+    //   top: 65px;
+    // }
+
+    /*activeクラスが付与されると線が回転して×に*/
+    &.active span {
+      // opacity: 0;/*真ん中の線は透過*/
+      background-color: rgba(255, 255, 255, 0);
+    }
+
+    &.active span::before {
+      opacity: 1;
+      bottom: 0;
+      transform: rotate(45deg);
+    }
+
+    &.active span::after {
+      opacity: 1;
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    // &.active span:nth-of-type(1) {
+    //   top: 45px;
+    //   left: 10px;
+    //   transform: translateY(6px) rotate(-45deg);
+    //   width: 80%;
+    // }
+
+    // &.active span:nth-of-type(2) {
+    //   opacity: 0;/*真ん中の線は透過*/
+    // }
+
+    // &.active span:nth-of-type(3) {
+    //   top: 45px;
+    //   left: 10px;
+    //   transform: translateY(6px) rotate(45deg);
+    //   width: 80%;
+    // }
+
+  }
+
+  /*アクティブになったエリア*/
+  &__gnav {
+    background-color: $background-red;
+    color: $font-white;
+
+    text-align: center;
+
+    // display: none;/*はじめは表示なし*/
+
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position: fixed;
+    z-index: 777;
+
+    /**/
+    top: 0;
+    width: 100%;
+    height: 100vh;
+
+    transition: all 0.5s;/*アニメーション設定*/
+    opacity: 0;
+    // visibility: hidden;
+
+    &.active {
+      opacity: 1;
+      // visibility: visible;
+    }
+
+    &__logo {
+      // @extend .header__logo;
+      position: absolute;
+      top: 50px;
+      left: 40px;
+      width: 100px;
+    }
+
+    a {
+      color: $font-white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__list {
+      // opacity: 0;/*はじめは透過0*/
+
+      /*ナビゲーション天地中央揃え*/
+      // position: absolute;
+      z-index: 777;
+
+      // top: 50%;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
+
+      margin: 80px 0 40px 0;
+      text-align: center;
+
+      /*背景が出現後にナビゲーションを表示*/
+      &.active {
+        opacity: 1;
+      }
+
+      li {
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding-bottom: 20px;
+
+        /* 背景が出現後にナビゲーション li を表示*/
+        animation-name: gnaviAnime;
+        animation-duration:1s;
+        animation-delay:.2s;/*0.2 秒遅らせて出現*/
+        animation-fill-mode:forwards;
+        opacity:0;
+
+        @keyframes gnaviAnime{
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+
+      a {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+    }
+
+    &__btn {
+      display: block;
+      // height: 50px;
+      width: 250px;
+      padding: 15px 0;
+      margin: 0 auto;
+
+      border: solid 1px $font-white;
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 1.6px;
+
+    }
+  }
+
+  /*丸の拡大*/
+  &__circle-bg {
+    position: fixed;
+    z-index: 5;
+
+    /*丸の形*/
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: $background-red;
+
+    /*丸のスタート位置と形状*/
+    transform: scale(0);/*scaleをはじめは0に*/
+    top: -50%;
+    left: calc(50% - 50px);/*50%から円の半径を引いた値*/
+    transition: all .6s;/*0.6秒かけてアニメーション*/
+
+    &.active {
+      transform: scale(50);/*クラスが付与されたらscaleを拡大*/
+    }
+  }
+}
