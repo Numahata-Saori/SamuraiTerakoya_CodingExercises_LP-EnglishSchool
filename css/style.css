@@ -23,7 +23,7 @@ img {
   -o-object-fit: cover;
      object-fit: cover;
   max-width: 100%;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 
 li {
@@ -340,4 +340,5 @@ li {
 }
 .mainvisual__img li img {
   height: 720px;
+  width: 100%;
 }

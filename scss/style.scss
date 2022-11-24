@@ -70,7 +70,7 @@ a {
 img {
   object-fit: cover;// アスペクト比
   max-width: 100%;
-  vertical-align: middle;// 画像下の余白を消す
+  vertical-align: bottom;// 画像下の余白を消す
 }
 
 li {
@@ -454,6 +454,7 @@ li {
 
       img {
         height: 720px;
+        width: 100%;
       }
     }
   }
