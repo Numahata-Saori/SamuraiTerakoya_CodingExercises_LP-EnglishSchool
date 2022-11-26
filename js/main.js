@@ -25,3 +25,31 @@ $("#gnav").click(function () {//ナビゲーションのリンクがクリック
     $("#gnav").removeClass('active');//ナビゲーションのpanelactiveクラスを除去
     $(".header__circle-bg").removeClass('active');//丸背景のcircleactiveクラスを除去
 });
+
+// // 動きのきっかけの起点となるアニメーションの名前を定義
+// function fadeAnime(){
+
+//   // ふわっ
+//   $('.reason__area__itemLeft').each(function(){ //reason__area__itemLeftというクラス名が
+//     var elemPos = $(this).offset().top-50;//要素より、50px上の
+//     var scroll = $(window).scrollTop();
+//     var windowHeight = $(window).height();
+//     if (scroll >= elemPos - windowHeight){
+//     $(this).addClass('fadeUpSlideLeft');// 画面内に入ったらfadeUpというクラス名を追記
+//     }
+//   });
+
+//   $('.reason__area__itemRight').each(function(){ //reason__area__itemRightというクラス名が
+//     var elemPos = $(this).offset().top-50;//要素より、50px上の
+//     var scroll = $(window).scrollTop();
+//     var windowHeight = $(window).height();
+//     if (scroll >= elemPos - windowHeight){
+//     $(this).addClass('fadeUpSlideRight');// 画面内に入ったらfadeUpというクラス名を追記
+//     }
+//   });
+// }
+
+// // 画面をスクロールをしたら動かしたい場合の記述
+// $(window).scroll(function (){
+// fadeAnime();/* アニメーション用の関数を呼ぶ*/
+// });// ここまで画面をスクロールをしたら動かしたい場合の記述

@@ -39,7 +39,7 @@ $background-red: #FF2A2A;
 $background-color3: #E8E8E8;
 $font-white: #FFFFFF;
 $font-black: #333333;
-$font-color3: #FF2A2A;
+$font-red: #FF2A2A;
 $textbackground-color: #E9F1FB;
 $btn-shadow: #7A051C;
 
@@ -328,6 +328,9 @@ li {
 }
 
 .mainvisual {
+  height: 720px;
+  margin-bottom: 120px;
+
   &__text {
     position: absolute;
     top: 380px;
@@ -457,5 +460,123 @@ li {
         width: 100%;
       }
     }
+  }
+}
+
+.sec-title {
+  color: $font-black;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 3.6px;
+  margin-bottom: 100px;
+  text-align: center;
+
+  position: relative;
+
+  /* sec-titleの下線 */
+  &:before {
+    content: "";
+    background-color: $font-black;
+    display: block;
+    // display: inline-block;
+    height: 3px;
+    width: 100px;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
+
+.reason {
+  margin-bottom: 120px;
+
+  &__area {
+    background-color: $background-red;
+    width: 100%;
+    padding: 80px 0;
+
+    // https://1-notes.com/css-slide-in-out-animation/
+    &__itemLeft,
+    &__itemRight {
+      background-color: $background-white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      padding: 70px 0;
+
+      // opacity: 0;
+
+      &__img {
+        height: 60px;
+        margin-right: 30px;
+      }
+
+      &__box {
+        .title {
+          display: block;/* 改行 */
+          color: $font-red;
+          font-size: 1.4rem;
+          font-weight: bold;
+          letter-spacing: 2.8px;
+        }
+        .text {
+          display: block;/* 改行 */
+          color: $font-black;
+          font-weight: normal;
+          font-size: 0.9rem;
+          letter-spacing: 1.8px;
+        }
+      }
+
+    }
+
+    &__itemLeft {
+      border-radius: 0px 20px 20px 0px;
+      margin-bottom: 40px;
+
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    &__itemRight {
+      border-radius: 20px 0px 0px 20px;
+
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    // Animate.cssを使わない場合
+    // .fadeUpSlideLeft {
+    //   animation: slide-left 0.5s ease-out 0s forwards;
+
+    //   @keyframes slide-left {
+    //     0% {
+    //       transform: translateX(-50%);
+    //     }
+
+    //     100% {
+    //       opacity: 1;
+    //       transform: translateX(0);
+    //     }
+    //   }
+    // }
+
+    // .fadeUpSlideRight {
+    //   animation: slide-right 0.5s ease-out 0s forwards;
+
+    //   @keyframes slide-right {
+    //     0% {
+    //       transform: translateX(150%);
+    //     }
+
+    //     100% {
+    //       opacity: 1;
+    //       transform: translateX(100%);
+    //     }
+    //   }
+    // }
   }
 }

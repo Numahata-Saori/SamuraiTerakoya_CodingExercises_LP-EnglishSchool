@@ -9,6 +9,19 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
   <link rel="shortcut icon" href="img/favicon.ico">
+
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  /> -->
+
+  <!-- <link rel="stylesheet" href="css/luminous-basic.min.css"> -->
+  <!-- <link rel="stylesheet" href="css/luminous-basic.min.css"> -->
+
+  <!-- <link rel="stylesheet" href="css/reset.css"> -->
+  <!-- <link rel="stylesheet" href="css/swiper.css"> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"> -->
 </head>
 
 <body>
@@ -53,7 +66,28 @@
     </div>
 
     <article>
-      <section class="reason" id="reason"></section>
+      <section class="reason" id="reason">
+        <h2 class="sec-title wow animate__animated animate__bounce">BBBが選ばれる理由</h2>
+
+        <div class="reason__area">
+
+          <div class="reason__area__itemLeft wow animate__animated animate__fadeInLeft">
+            <img class="reason__area__itemLeft__img" src="img/icon-pc.png" alt="">
+            <p class="reason__area__itemLeft__box">
+              <span class="title">オンライン対応</span>
+              <span class="text">24時間いつでも受講できる！</span>
+            </p>
+          </div>
+
+          <div class="reason__area__itemRight wow animate__animated animate__fadeInRight">
+            <img class="reason__area__itemRight__img" src="img/icon-teacher.png" alt="">
+            <p class="reason__area__itemRight__box">
+              <span class="title">講師はネイティブ</span>
+              <span class="text">お気に入りの講師が自由に選べる！</span>
+            </p>
+          </div>
+        </div>
+      </section>
     </article>
 
     <article>
@@ -72,5 +106,10 @@
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
+
+  <script src="js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
 </body>
 </html>

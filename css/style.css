@@ -210,6 +210,10 @@ li {
   transform: scale(50); /*クラスが付与されたらscaleを拡大*/
 }
 
+.mainvisual {
+  height: 720px;
+  margin-bottom: 120px;
+}
 .mainvisual__text {
   position: absolute;
   top: 380px;
@@ -341,4 +345,73 @@ li {
 .mainvisual__img li img {
   height: 720px;
   width: 100%;
+}
+
+.sec-title {
+  color: #333333;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 3.6px;
+  margin-bottom: 100px;
+  text-align: center;
+  position: relative;
+  /* sec-titleの下線 */
+}
+.sec-title:before {
+  content: "";
+  background-color: #333333;
+  display: block;
+  height: 3px;
+  width: 100px;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.reason {
+  margin-bottom: 120px;
+}
+.reason__area {
+  background-color: #FF2A2A;
+  width: 100%;
+  padding: 80px 0;
+}
+.reason__area__itemLeft, .reason__area__itemRight {
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 70px 0;
+}
+.reason__area__itemLeft__img, .reason__area__itemRight__img {
+  height: 60px;
+  margin-right: 30px;
+}
+.reason__area__itemLeft__box .title, .reason__area__itemRight__box .title {
+  display: block; /* 改行 */
+  color: #FF2A2A;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 2.8px;
+}
+.reason__area__itemLeft__box .text, .reason__area__itemRight__box .text {
+  display: block; /* 改行 */
+  color: #333333;
+  font-weight: normal;
+  font-size: 0.9rem;
+  letter-spacing: 1.8px;
+}
+.reason__area__itemLeft {
+  border-radius: 0px 20px 20px 0px;
+  margin-bottom: 40px;
+  margin-left: 0;
+  margin-right: auto;
+}
+.reason__area__itemRight {
+  border-radius: 20px 0px 0px 20px;
+  margin-left: auto;
+  margin-right: 0;
 }
