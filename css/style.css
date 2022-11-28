@@ -9,9 +9,9 @@ body {
 }
 
 .ly-cont {
+  width: 100%;
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 5%;
 }
 
 a {
@@ -414,4 +414,68 @@ li {
   border-radius: 20px 0px 0px 20px;
   margin-left: auto;
   margin-right: 0;
+}
+
+.voice .voice__item-left,
+.voice .voice__item-right {
+  color: #333333;
+  display: flex;
+  margin-bottom: 60px;
+}
+.voice .voice__item-left__student img,
+.voice .voice__item-right__student img {
+  height: 120px;
+  width: 120px;
+  background-color: #CCCCCC;
+  border-radius: 50%;
+}
+.voice .voice__item-left__student__name,
+.voice .voice__item-right__student__name {
+  font-size: 0.6rem;
+  font-weight: normal;
+  letter-spacing: 1.2px;
+  text-align: center;
+}
+.voice .voice__item-left__text,
+.voice .voice__item-right__text {
+  display: inline-block;
+  background-color: #E9F1FB;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: normal;
+  letter-spacing: 1.6px;
+  padding: 20px;
+  width: 60%;
+  position: relative;
+}
+.voice .voice__item-left {
+  justify-content: flex-start;
+}
+.voice .voice__item-left__text {
+  margin-left: 26px;
+}
+.voice .voice__item-left__text:before {
+  content: "";
+  border: 15px solid transparent;
+  border-right: 15px solid #E9F1FB;
+  margin-left: -30px;
+  position: absolute;
+  top: 60%;
+  left: 0;
+}
+.voice .voice__item-right {
+  flex-direction: row-reverse; /* 横並び逆順 */
+  justify-content: flex-start;
+}
+.voice .voice__item-right__text {
+  margin-right: 26px;
+}
+.voice .voice__item-right__text:before {
+  content: "";
+  border: 15px solid transparent;
+  border-left: 15px solid #E9F1FB;
+  margin-right: -30px;
+  position: absolute;
+  top: 60%;
+  right: 0;
 }

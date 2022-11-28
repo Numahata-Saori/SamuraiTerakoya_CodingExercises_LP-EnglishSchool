@@ -36,11 +36,12 @@ html {
 // color
 $background-white: #FFFFFF;
 $background-red: #FF2A2A;
+$background-gray: #CCCCCC;
 $background-color3: #E8E8E8;
 $font-white: #FFFFFF;
 $font-black: #333333;
 $font-red: #FF2A2A;
-$textbackground-color: #E9F1FB;
+$textbox: #E9F1FB;
 $btn-shadow: #7A051C;
 
 body {
@@ -57,9 +58,10 @@ body {
 }
 
 .ly-cont {
+  width: 100%;
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 5%;
+  // padding: 0 5%;
 }
 
 a {
@@ -578,5 +580,82 @@ li {
     //     }
     //   }
     // }
+  }
+}
+
+.voice {
+
+  .voice__item-left,
+  .voice__item-right {
+    color: $font-black;
+    display: flex;
+    margin-bottom: 60px;
+
+    &__student {
+      img {
+        height: 120px;
+        width: 120px;
+        background-color: $background-gray;
+        border-radius: 50%;
+      }
+
+      &__name {
+        font-size: 0.6rem;
+        font-weight: normal;
+        letter-spacing: 1.2px;
+        text-align: center;
+      }
+    }
+
+    &__text {
+      display: inline-block;
+      background-color: $textbox;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: normal;
+      letter-spacing: 1.6px;
+      padding: 20px;
+      width: 60%;
+
+      position: relative;
+    }
+  }
+
+  .voice__item-left {
+    justify-content: flex-start;
+
+    &__text {
+      margin-left: 26px;
+
+      &:before {
+        content: "";
+        border: 15px solid transparent;
+        border-right: 15px solid $textbox;
+        margin-left: -30px;
+        position: absolute;
+        top: 60%;
+        left: 0;
+      }
+    }
+  }
+
+  .voice__item-right {
+    flex-direction: row-reverse;/* 横並び逆順 */
+    // justify-content: flex-end;
+    justify-content: flex-start;
+
+    &__text {
+      margin-right: 26px;
+
+      &:before {
+        content: "";
+        border: 15px solid transparent;
+        border-left: 15px solid $textbox;
+        margin-right: -30px;
+        position: absolute;
+        top: 60%;
+        right: 0;
+      }
+    }
   }
 }
