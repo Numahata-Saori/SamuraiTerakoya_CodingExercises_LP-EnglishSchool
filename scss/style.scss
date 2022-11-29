@@ -37,7 +37,7 @@ html {
 $background-white: #FFFFFF;
 $background-red: #FF2A2A;
 $background-gray: #CCCCCC;
-$background-color3: #E8E8E8;
+$background-lightGray: #E8E8E8;
 $font-white: #FFFFFF;
 $font-black: #333333;
 $font-red: #FF2A2A;
@@ -584,6 +584,7 @@ li {
 }
 
 .voice {
+  margin-bottom: 120px;
 
   .voice__item-left,
   .voice__item-right {
@@ -655,6 +656,70 @@ li {
         position: absolute;
         top: 60%;
         right: 0;
+      }
+    }
+  }
+}
+
+// https://hirashimatakumi.com/blog/4373.html
+.summary {
+  background-color: $background-lightGray;
+  padding: 60px 0;
+  margin-bottom: 120px;
+
+  background: url(../img/bg.gif);
+  background-position: 0 0;
+  animation: bgroop 10s linear infinite;
+
+  @keyframes bgroop {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: -700px 700px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items:stretch;
+
+    &__box {
+      color: $font-black;
+      background-color: $background-white;
+      border-radius: 20px;
+      // width: 50%;
+      width: calc(50% - 60px / 2);
+      padding: 60px;
+      margin-bottom: 32px;
+
+      .title {
+        font-weight: bold;
+        text-align: center;
+
+        &__ja {
+          display: block;
+          font-size: 1.4rem;
+          letter-spacing: 2.8px;
+          line-height: 1;
+          padding-bottom: 15px;
+        }
+
+        &__en {
+          display: block;
+          font-size: 0.9rem;
+          letter-spacing: 1.8px;
+          line-height: 1;
+          padding-bottom: 30px;
+        }
+      }
+
+      .text {
+        font-size: 0.8rem;
+        font-weight: normal;
+        letter-spacing: 1.6px;
       }
     }
   }
