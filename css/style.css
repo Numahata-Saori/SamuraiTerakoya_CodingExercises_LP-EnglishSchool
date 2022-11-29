@@ -581,3 +581,31 @@ li {
   background-color: #FFFFFF;
   color: #FF2A2A;
 }
+
+.footer {
+  background-color: #E8E8E8;
+  padding: 60px 0 20px 0;
+}
+.footer .footer-ly {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+.footer__group {
+  font-size: 0.8rem;
+  letter-spacing: 1.6px;
+  width: 25%;
+}
+.footer__group__title {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.footer__group__menu .item {
+  font-weight: normal;
+  text-indent: 1em;
+  padding-bottom: 3px;
+}
+.footer .copyright {
+  font-size: 0.5rem;
+  text-align: center;
+}
