@@ -724,3 +724,43 @@ li {
     }
   }
 }
+
+.entry {
+  text-align: center;
+  margin-bottom: 120px;
+
+  &__text {
+    color: $font-black;
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 3.2px;
+    padding-bottom: 5px;
+  }
+
+  &__textsub {
+    color: $font-black;
+    font-size: 0.9rem;
+    font-weight: normal;
+    letter-spacing: 1.8px;
+    margin-bottom: 40px;
+  }
+
+  &__btn {
+    background-color: $background-red;
+    border: solid 3px $font-red;
+    border-radius: 40px;
+    color: $font-white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 2.8px;
+    display: inline-block;
+    padding: 15px 0;
+    width: 860px;
+    transition: all  0.3s ease;
+
+    &:hover {
+      background-color: $background-white;
+      color: $font-red;
+    }
+  }
+}
