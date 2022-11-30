@@ -3,7 +3,7 @@
 // レスポンシブ用
 $breakpoints: (
   "tb": "screen and (max-width: 1200px)",
-  "tb-s": "screen and (max-width: 900px)",
+  "tb-s": "screen and (max-width: 860px)",
   "sm-x": "screen and (max-width: 600px)",
   "sm": "screen and (max-width: 480px)",
   "sm-s": "screen and (max-width: 340px)",
@@ -55,6 +55,8 @@ body {
     "游ゴシック",
     "Yu Gothic",
     sans-serif;
+
+    // overflow: hidden;
 }
 
 .ly-cont {
@@ -62,6 +64,10 @@ body {
   max-width: 860px;
   margin: 0 auto;
   // padding: 0 5%;
+
+  @include bq(tb-s) {
+     padding: 0 16px;
+  }
 }
 
 a {
@@ -82,10 +88,17 @@ li {
 .header {
   background-color: $background-white;
   height: 100px;
+  width: 100%;
+
+  // display:none;
 
   &__logo {
     margin: 50px 40px 0 40px;
     width: 100px;
+
+    @include bq(tb-s) {
+      margin: 25px 25px 25px;
+    }
 
     a {
       display: block;
@@ -108,6 +121,11 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include bq(tb-s) {
+      width: 75px;
+      height: 75px;
+    }
 
     span,
     span:before,
@@ -222,6 +240,11 @@ li {
       top: 50px;
       left: 40px;
       width: 100px;
+
+      @include bq(tb-s) {
+        top: 25px;
+        left: 25px;
+      }
     }
 
     a {
@@ -237,6 +260,10 @@ li {
 
       margin: 80px 0 40px 0;
       text-align: center;
+
+      @include bq(tb-s) {
+        margin-top: 110px;
+      }
 
       /*背景が出現後にナビゲーションを表示*/
       &.active {
@@ -332,6 +359,12 @@ li {
 .mainvisual {
   height: 720px;
   margin-bottom: 120px;
+  position: relative;
+
+  @include bq(tb-s) {
+    height: 470px;
+    margin-bottom: 80px;
+  }
 
   &__text {
     position: absolute;
@@ -339,12 +372,25 @@ li {
     left: 135px;
     z-index: 10;
 
+    @include bq(tb-s) {
+      margin: 0 16px;
+      top: 310px;
+      left: 0;
+      width: calc(100% - 32px);
+    }
+
     &__title {
       color: $font-black;
       font-size: 2.3rem;
       font-weight: bold;
       letter-spacing: 4.6px;
       margin-bottom: 30px;
+
+      @include bq(tb-s) {
+        font-size: 1.4rem;
+        letter-spacing: 2.8px;
+        margin-bottom: 10px;
+      }
     }
 
     &__btn {
@@ -365,6 +411,10 @@ li {
 
       /* くの字 */
       position: relative;
+
+      @include bq(tb-s) {
+        width: 100%;
+      }
 
       // https://kouhekikyozou.com/css_arrow_button
       /* くの字の表示設定 */
@@ -403,6 +453,12 @@ li {
       top: 0;
       right: 0;
       width: 75%;
+
+      @include bq(tb-s) {
+        top: 0;
+        right: 0;
+        width: 100%;
+      }
 
       /* スライドアニメーション設定 */
       animation-duration: 15s; /* 長さ15秒 */
@@ -460,6 +516,10 @@ li {
       img {
         height: 720px;
         width: 100%;
+
+        @include bq(tb-s) {
+          height: 300px;
+        }
       }
     }
   }
@@ -475,6 +535,12 @@ li {
 
   position: relative;
 
+  @include bq(tb-s) {
+    font-size: 1.4rem;
+    letter-spacing: 2.8px;
+    margin-bottom: 60px;
+  }
+
   /* sec-titleの下線 */
   &:before {
     content: "";
@@ -488,16 +554,28 @@ li {
     left: 0;
     right: 0;
     margin: 0 auto;
+
+    @include bq(tb-s) {
+      width: 80px;
+    }
   }
 }
 
 .reason {
   margin-bottom: 120px;
 
+  @include bq(tb-s) {
+    margin-bottom: 80px;
+  }
+
   &__area {
     background-color: $background-red;
     width: 100%;
     padding: 80px 0;
+
+    @include bq(tb-s) {
+      padding: 40px 0;
+    }
 
     // https://1-notes.com/css-slide-in-out-animation/
     &__itemLeft,
@@ -511,6 +589,11 @@ li {
 
       // opacity: 0;
 
+      @include bq(tb-s) {
+        width: calc(100% - 16px);
+        padding: 20px;
+      }
+
       &__img {
         height: 60px;
         margin-right: 30px;
@@ -523,7 +606,13 @@ li {
           font-size: 1.4rem;
           font-weight: bold;
           letter-spacing: 2.8px;
+
+          @include bq(tb-s) {
+            font-size: 1.2rem;
+            letter-spacing: 2.4px;
+          }
         }
+
         .text {
           display: block;/* 改行 */
           color: $font-black;
@@ -541,6 +630,10 @@ li {
 
       margin-left: 0;
       margin-right: auto;
+
+      @include bq(tb-s) {
+        margin-right: 16px;
+      }
     }
 
     &__itemRight {
@@ -548,6 +641,10 @@ li {
 
       margin-left: auto;
       margin-right: 0;
+
+      @include bq(tb-s) {
+        margin-left: 16px;
+      }
     }
 
     // Animate.cssを使わない場合
@@ -586,13 +683,24 @@ li {
 .voice {
   margin-bottom: 120px;
 
+  @include bq(tb-s) {
+    margin-bottom: 80px;
+  }
+
   .voice__item-left,
   .voice__item-right {
     color: $font-black;
     display: flex;
     margin-bottom: 60px;
 
+    @include bq(tb-s) {
+      margin-bottom: 40px;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
     &__student {
+
       img {
         height: 120px;
         width: 120px;
@@ -619,6 +727,10 @@ li {
       width: 60%;
 
       position: relative;
+
+      @include bq(tb-s) {
+        width: 100%;
+      }
     }
   }
 
@@ -628,6 +740,11 @@ li {
     &__text {
       margin-left: 26px;
 
+      @include bq(tb-s) {
+        margin-left: 0;
+        margin-bottom: 26px;
+      }
+
       &:before {
         content: "";
         border: 15px solid transparent;
@@ -636,6 +753,16 @@ li {
         position: absolute;
         top: 60%;
         left: 0;
+
+        @include bq(tb-s) {
+          border: 15px solid transparent;
+          border-top: 15px solid $textbox;
+          margin-left: 0;
+          margin-bottom: -30px;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
     }
   }
@@ -645,8 +772,18 @@ li {
     // justify-content: flex-end;
     justify-content: flex-start;
 
+    @include bq(tb-s) {
+      flex-direction: row;
+      flex-direction: column-reverse;
+    }
+
     &__text {
       margin-right: 26px;
+
+      @include bq(tb-s) {
+        margin-right: 0;
+        margin-bottom: 26px;
+      }
 
       &:before {
         content: "";
@@ -656,6 +793,16 @@ li {
         position: absolute;
         top: 60%;
         right: 0;
+
+        @include bq(tb-s) {
+          border: 15px solid transparent;
+          border-top: 15px solid $textbox;
+          margin-right: 0;
+          margin-bottom: -30px;
+          top: 100%;
+          right: 50%;
+          transform: translateX(-50%);
+        }
       }
     }
   }
@@ -666,6 +813,10 @@ li {
   background-color: $background-lightGray;
   padding: 60px 0;
   margin-bottom: 120px;
+
+  @include bq(tb-s) {
+    margin-bottom: 80px;
+  }
 
   background: url(../img/bg.gif);
   background-position: 0 0;
@@ -694,6 +845,11 @@ li {
       width: calc(50% - 60px / 2);
       padding: 60px;
       margin-bottom: 32px;
+
+      @include bq(tb-s) {
+        width: 100%;
+        padding: 30px;
+      }
 
       .title {
         font-weight: bold;
@@ -729,12 +885,21 @@ li {
   text-align: center;
   margin-bottom: 120px;
 
+  @include bq(tb-s) {
+    margin-bottom: 80px;
+  }
+
   &__text {
     color: $font-black;
     font-size: 1.6rem;
     font-weight: bold;
     letter-spacing: 3.2px;
     padding-bottom: 5px;
+
+    @include bq(tb-s) {
+      font-size: 1.2rem;
+      letter-spacing: 2.4px;
+    }
   }
 
   &__textsub {
@@ -743,6 +908,11 @@ li {
     font-weight: normal;
     letter-spacing: 1.8px;
     margin-bottom: 40px;
+
+    @include bq(tb-s) {
+      font-size: 0.8rem;
+      letter-spacing: 1.6px;
+    }
   }
 
   &__btn {
@@ -758,6 +928,12 @@ li {
     width: 860px;
     transition: all  0.3s ease;
 
+    @include bq(tb-s) {
+      font-size: 1.2rem;
+      letter-spacing: 2.4px;
+      width: 100%;
+    }
+
     &:hover {
       background-color: $background-white;
       color: $font-red;
@@ -771,14 +947,22 @@ li {
 
   .footer-ly {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 60px;
+
+    @include bq(tb-s) {
+      flex-wrap: wrap;
+    }
   }
 
   &__group {
     font-size: 0.8rem;
     letter-spacing: 1.6px;
     width: 25%;
+
+    @include bq(tb-s) {
+      width: 50%;
+    }
 
     &__title {
       font-weight: bold;
